@@ -287,3 +287,21 @@ body {
         visibility: hidden;
     }
 }
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: burst 2s linear forwards;
+}
+
+@keyframes burst {
+    0% {
+        transform: translate(0,0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
