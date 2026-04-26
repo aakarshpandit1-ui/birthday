@@ -33,7 +33,42 @@
         Happy Birthday!
     </div>
 </div>
+     <div class="confetti-container" id="confetti-container"></div>
 
 </body>
+    <script>
+function createConfetti() {
+    const container = document.getElementById("confetti-container");
+    const colors = ["red", "yellow", "blue", "green", "pink", "orange"];
+
+    for(let i = 0; i < 80; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+        confetti.style.left = "50%";
+        confetti.style.top = "50%";
+
+        confetti.style.setProperty(
+            "--x",
+            `${Math.random() * 800 - 400}px`
+        );
+
+        confetti.style.setProperty(
+            "--y",
+            `${Math.random() * 800 - 400}px`
+        );
+
+        container.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 2000);
+    }
+}
+
+window.onload = createConfetti;
+</script>
   </body>
 </html>
